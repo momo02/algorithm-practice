@@ -5,6 +5,50 @@ import java.util.Arrays;
 public class Solution {
 
     /**
+     * Arrays.copyOfRange,Arrays.sort 함수 사용하지 않고 구현.
+     *
+     * 수행 시간 : 8549ns(나노타임/세크)
+     * 수행 시간 : 10639ns(나노타임/세크)
+     * 수행 시간 : 8610ns(나노타임/세크)
+     * 수행 시간 : 10370ns(나노타임/세크)
+     * 수행 시간 : 7630ns(나노타임/세크)
+     */
+    public int[] solution3(int[] array, int[][] commands) {
+        int[] answer = new int[commands.length];
+
+        for(int i=0; i<commands.length; i++){
+            int[] c = new int[commands[i][1] - commands[i][0] + 1];
+
+            int j = 0;
+
+            for(int k=0; k<array.length; k++){
+                if(k >= commands[i][0]-1 && k < commands[i][1]){
+                    c[j++] = array[k];
+                }
+            }
+            //Arrays.sort(c);
+            //System.out.println(Arrays.toString(c));
+            sort(c);
+
+            answer[i] = c[commands[i][2]-1];
+        }
+        return answer;
+    }
+
+    /** sort 함수 직접 구현 **/
+    public void sort(int[] array) {
+        for(int i=0; i<array.length; i++){
+            for(int j=i+1; j<array.length; j++){
+                if(array[i] > array[j]){
+                    int tmp = array[i];
+                    array[i] = array[j];
+                    array[j] = tmp;
+                }
+            }
+        }
+    }
+
+    /**
      * Arrays.copyOfRange 함수 사용하지 않고 구현.
      *
      * 수행 시간 : 1022221ns(나노타임/세크)
@@ -65,7 +109,7 @@ public class Solution {
         int[] answer = {5, 6, 3};
 
         long startTime = System.nanoTime();
-        int[] result = s.solution2(array, commands);
+        int[] result = s.solution3(array, commands);
         long endTime = System.nanoTime();
 
         for(int i=0; i<result.length; i++) {
