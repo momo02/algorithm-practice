@@ -49,34 +49,30 @@ public class Solution {
                 tf = tf.next;
             }
 
-            System.out.print(">>>> k : " +  ks[i] + ", ");
-
+            //System.out.print(">>>> k : " +  ks[i] + ", ");
+            long startTime = System.nanoTime();
             ListNode<Integer> rmRs = removeKFromList(f, ks[i]);
+            long endTime = System.nanoTime();
 
             // check
             ListNode<Integer> tnxt = rmRs;
+            int j = 0;
+            boolean isFail = false;
 
-            while(null != tnxt){
-                System.out.print(tnxt.value);
+            while(tnxt != null){
+                //System.out.print(tnxt.value + " ");
+                if(rs[i][j++] != tnxt.value){
+                    isFail = true;
+                }
                 tnxt = tnxt.next;
-
             }
+            if(isFail){
+                System.out.println("-> " + i + ".오답!");
+            }else {
+                System.out.println("-> " + i + ".정답!");
+            }
+            long resultTime = (endTime - startTime);
+            System.out.println("수행 시간 : " + resultTime +"ns(나노타임/세크)");
         }
-
-
-
-//        long startTime = System.nanoTime();
-//
-//        for(int i =0; i< commands[i].length; i++){
-//            if(answer[i] == removeKFromList(commands[i], ks[i])){
-//                System.out.println((i+1) + ". 정답!");
-//            }else{
-//                System.out.println((i+1) + ". 오답!");
-//            }
-//        }
-//        long endTime = System.nanoTime();
-//
-//        long resultTime = (endTime - startTime);
-//        System.out.println("수행 시간 : " + resultTime +"ns(나노타임/세크)");
     }
 }
