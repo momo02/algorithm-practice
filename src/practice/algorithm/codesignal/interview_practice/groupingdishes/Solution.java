@@ -1,17 +1,83 @@
 package practice.algorithm.codesignal.interview_practice.groupingdishes;
 
-import practice.algorithm.codesignal.interview_practice.removekfromlist.ListNode;
-
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.HashMap;
+import java.util.Set;
 
 public class Solution {
 
     public static String[][] groupingDishes(String[][] dishes) {
-        String[][] rs = new String[0][];
+        HashMap<String, ArrayList<String>> m = new HashMap<>();
+        int r_cnt = 0;
         for(int i = 0; i<dishes.length; i++){
+            for(int j=1; j<dishes[i].length; j++){
+                //m.put(dishes[i][j],  m.getOrDefault(dishes[i][j], 0) + 1);
+                String ds = dishes[i][0];
+                String id = dishes[i][j];
 
+                ArrayList<String> al = null;
+                if(m.containsKey(id)){
+                    al = m.get(id);
+                    al.add(ds);
+                    if(al.size() == 2) r_cnt++;
+                }else{
+                    al = new ArrayList<>();
+                    al.add(ds);
+                }
+                m.put(id , al);
+            }
+        }
+
+        System.out.println(r_cnt);
+        String[][] rs = new String[r_cnt][];
+
+        int y = 0;
+        String[] ci = new String[r_cnt];
+
+        for(String key : m.keySet()) {
+            ArrayList<String> dss = (ArrayList<String>) m.get(key);
+            if(dss.size() > 1){
+                ci[y++] = key;
+            }
+        }
+
+        // 공통 재료 정렬
+        sort(ci);
+//        System.out.println("////공통 재료 정렬 이후 : ");
+//        System.out.println(Arrays.toString(ci));
+
+        // 요리 정렬
+        for(int i =0; i<ci.length; i++){
+            ArrayList<String> dss = m.get(ci[i]);
+
+            // ArrayList -> String[]
+            String[] dss2 = new String[dss.size()];
+            for(int j=0; j<dss2.length; j++){
+                dss2[j] = dss.get(j);
+            }
+            sort(dss2);
+
+            rs[i] = new String[dss2.length + 1];
+            rs[i][0] = ci[i];
+            for(int j =0; j<dss2.length; j++){
+                rs[i][j+1] = dss2[j];
+            }
         }
         return rs;
+    }
+
+    public static  void sort(String[] ci) {
+        for(int i =0; i<ci.length; i++){
+            for(int j=i+1; j<ci.length; j++){
+                String tmp = null;
+                if(ci[i].compareTo(ci[j]) > 0){
+                    tmp = ci[i];
+                    ci[i] =  ci[j];
+                    ci[j] = tmp;
+                }
+            }
+        }
     }
 
 
@@ -29,6 +95,7 @@ public class Solution {
 //                            ["Sauce", "Pizza", "Quesadilla", "Salad"],
 //                            ["Tomato", "Pizza", "Salad", "Sandwich"]]
 
+        System.out.println("Salad".compareTo("Sauce"));
         String[][] dishes2 = {
                 {"Pasta", "Tomato Sauce", "Onions", "Garlic"},
                 {"Chicken Curry", "Chicken", "Curry Sauce"},
@@ -45,9 +112,15 @@ public class Solution {
         String rs[][] = groupingDishes(dishes);
         String rs2[][] = groupingDishes(dishes2);
 
-        System.out.println(Arrays.toString(rs));
-        System.out.println(Arrays.toString(rs2));
+        rsChk(rs);
+        rsChk(rs2);
+    }
 
+    public static void rsChk(String[][] rs) {
+        System.out.println("============ 결과 확인 ============");
+        for(String[] s : rs){
+            System.out.println(Arrays.toString(s));
+        }
     }
 }
 
