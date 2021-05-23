@@ -1,18 +1,74 @@
 package practice.algorithm.codesignal.interview_practice.groupingdishes;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.HashMap;
-import java.util.Set;
+import practice.algorithm.utils.StopWatch;
+
+import java.util.*;
 
 public class Solution {
 
+    /**
+     * Popular case
+     *
+     * 속도(ns):57164655
+     * 속도(ns):75974499
+     * 속도(ns):55908830
+     * 속도(ns):62184779
+     * 속도(ns):80540038
+     * 속도(ns):69807234
+     */
+    public static String[][] groupingDishes2(String[][] dishes) {
+        HashMap<String, ArrayList<String>> map = new HashMap<>();
+        for(String[] ingred: dishes){
+            for(int i = 1; i < ingred.length; i++){
+                if(map.containsKey(ingred[i])){
+                    ArrayList<String> foods = map.get(ingred[i]);
+                    foods.add(ingred[0]);
+                    map.put(ingred[i],foods);
+                }else{
+                    ArrayList<String> foods = new ArrayList<>();
+                    foods.add(ingred[0]);
+                    map.put(ingred[i],foods);
+                }
+            }
+        }
+
+        ArrayList<String[]> list = new ArrayList<>();
+        for(String ingred:map.keySet()){
+            ArrayList<String> foods = map.get(ingred);
+            if(foods.size()>1){
+                Collections.sort(foods);
+                String[] fin = new String[foods.size()+1];
+                fin[0]=ingred;
+                for(int i = 0; i < foods.size(); i++)
+                    fin[i+1]=foods.get(i);
+                list.add(fin);
+            }
+        }
+
+        Collections.sort(list, (a, b) -> a[0].compareTo(b[0]));
+
+        // TODO new String[4][] 가 아니라  String[0][] 으로 해도 왜 되는건지.. ?
+        return list.toArray(new String[0][]);
+    }
+
+    /**
+     * 내 풀이
+     * 속도(ns):686485
+     * 속도(ns):584978
+     * 속도(ns):697891
+     * 속도(ns):856315
+     * 속도(ns):624207
+     * 속도(ns):921382
+     * 속도(ns):652849
+     *
+     * @param dishes
+     * @return
+     */
     public static String[][] groupingDishes(String[][] dishes) {
         HashMap<String, ArrayList<String>> m = new HashMap<>();
         int r_cnt = 0;
         for(int i = 0; i<dishes.length; i++){
             for(int j=1; j<dishes[i].length; j++){
-                //m.put(dishes[i][j],  m.getOrDefault(dishes[i][j], 0) + 1);
                 String ds = dishes[i][0];
                 String id = dishes[i][j];
 
@@ -29,7 +85,7 @@ public class Solution {
             }
         }
 
-        System.out.println(r_cnt);
+        //System.out.println(r_cnt);
         String[][] rs = new String[r_cnt][];
 
         int y = 0;
@@ -95,7 +151,8 @@ public class Solution {
 //                            ["Sauce", "Pizza", "Quesadilla", "Salad"],
 //                            ["Tomato", "Pizza", "Salad", "Sandwich"]]
 
-        System.out.println("Salad".compareTo("Sauce"));
+        //System.out.println("Salad".compareTo("Tomato"));
+
         String[][] dishes2 = {
                 {"Pasta", "Tomato Sauce", "Onions", "Garlic"},
                 {"Chicken Curry", "Chicken", "Curry Sauce"},
@@ -109,8 +166,12 @@ public class Solution {
 //                            ["Nuts", "Fried Rice", "Salad"],
 //                            ["Onions", "Fried Rice", "Pasta"]]
 
+        StopWatch.play();
+
         String rs[][] = groupingDishes(dishes);
         String rs2[][] = groupingDishes(dishes2);
+
+        StopWatch.stop();
 
         rsChk(rs);
         rsChk(rs2);
