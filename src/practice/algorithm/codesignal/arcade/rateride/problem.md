@@ -4,7 +4,7 @@ When you finally decide to head back, you realize there's a chance the bridges o
 
 Using the bike's timer, calculate the current time. Return an answer as the sum of digits that the digital timer in the format hh:mm would show.
 
-Example
+## Example
 
 For n = 240, the output should be
 lateRide(n) = 4.
@@ -16,7 +16,7 @@ lateRide(n) = 14.
 
 808 minutes mean that it's 13:28 now, so the answer should be 1 + 3 + 2 + 8 = 14.
 
-Input/Output
+## Input/Output
 
 [execution time limit] 3 seconds (java)
 
