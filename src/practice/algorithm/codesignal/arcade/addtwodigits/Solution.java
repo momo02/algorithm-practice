@@ -1,6 +1,4 @@
-package practice.algorithm.codesignal.arcade.addTwoDigits;
-
-import java.util.Arrays;
+package practice.algorithm.codesignal.arcade.addtwodigits;
 
 public class Solution {
 
