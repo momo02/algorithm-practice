@@ -1,4 +1,4 @@
-package practice.algorithm.codility.binarygap;
+package practice.algorithm.codility.lessons.iterations.binarygap;
 
 public class Solution {
 
