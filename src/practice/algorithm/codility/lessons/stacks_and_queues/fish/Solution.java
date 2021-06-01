@@ -51,42 +51,77 @@ import java.util.Stack;
  */
 public class Solution {
 
+    // best case 참고
+    public static int solution2(int[] A, int[] B) {
+        // write your code in Java SE 8
+        Stack<Integer> down = new Stack<>();
+        int lastSize;
+        int aliveCount = 0;
+
+        for (int i = 0; i < A.length; i++) {
+            if (B[i] == 1) down.push(A[i]);
+            else {
+                while (!down.isEmpty()) {
+                    lastSize = down.peek();
+                    if (lastSize > A[i]) break;
+                    else down.pop();
+                }
+                //stack 이 비었다면 상류로가는 해당 물고기가 살아남은 것.
+                if (down.isEmpty()) aliveCount++;
+            }
+        }
+        return aliveCount + down.size();
+    }
+
     public static int solution(int[] A, int[] B) {
         // write your code in Java SE 8
-        //int alive = 0;
+
         Stack<Integer> alive = new Stack<>();
-        // int p = -1;
+
         for (int i = 0; i < A.length; i++) {
             System.out.println(">>>> i : " + i);
-
-
-//            if(i == 0 && B[0] == 0){
-//                alive.push(A[0]);
-//                continue;
-//            }
+            System.out.println(">>>> A[i] : " + A[i]);
 
             if (B[i] == 0) { //상류 방향 물고기라면
                 if (alive.empty()){
-                    alive.push(A[i]);
-                    continue;
+                    alive.push(i);
+                }else{
+                   Integer prevIdx = alive.get(alive.size()-1);
+
+                   if(B[prevIdx] == 0){ //방향이 같으면 그냥 push
+                       alive.push(i);
+                   }else{
+                        // 다음 상류방향 물고기가 더 크면
+                        if(A[prevIdx] < A[i]){
+                            alive.pop();
+
+                            boolean isEaten = false;
+                            //stack 살아있는 물고기 체크
+                            while (!isEaten){
+                               if(alive.empty()) break;
+                                Integer prevIdx2 = alive.get(alive.size()-1);
+                                System.out.println(">>> prevIdx2 : " + prevIdx2);
+                                 //방향이 다르면
+                                if(B[prevIdx2] == 1){
+                                    if(A[prevIdx2] > A[i]){
+                                        isEaten = true;
+                                        break;
+                                    }else{
+                                        alive.pop();
+                                    }
+                                }else break;
+                            }
+
+                            if(!isEaten) alive.push(i);
+                        }
+                   }
                 }
 
-                int prevFishIdx = alive.pop();
-                if (A[prevFishIdx] > A[i] && B[prevFishIdx] == 1) {
-                    //먹힌다
-                    alive.push(A[prevFishIdx]);
-                } else { //먹는다
-                    alive.push(A[i]);
-                    for(int j=0; j<alive.size(); j++){
-
-                    }
-                }
             } else { //하류 방향 물고기라면
-                alive.push(A[i]);
+                alive.push(i);
             }
             System.out.println(">>>> alive : " + alive.toString());
         }
-
         return alive.size();
     }
 
@@ -97,7 +132,11 @@ public class Solution {
         int[] C = {4,3,2,1,5};
         int[] D = {1,1,0,0,0};
 
-        System.out.println( solution(A,B));
-        System.out.println( solution(C,D));
+        int[] E = {6,5,4,3,1,7};
+        int[] F = {1,0,0,0,0,1};
+
+        System.out.println( solution2(A,B)); // 2
+        System.out.println( solution2(C,D)); // 1
+        System.out.println( solution2(E,F)); // 2
     }
 }
