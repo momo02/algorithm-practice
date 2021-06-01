@@ -66,7 +66,7 @@ public class Solution {
                     if (lastSize > A[i]) break;
                     else down.pop();
                 }
-                //stack 이 비었다면 상류로가는 해당 물고기가 살아남은 것.
+                //stack 이 비었다면 상류로 가는 해당 물고기가 살아남은 것.
                 if (down.isEmpty()) aliveCount++;
             }
         }
