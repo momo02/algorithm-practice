@@ -1,4 +1,4 @@
-package practice.algorithm.codesignal.arcade.maxmultiple;
+package practice.algorithm.codesignal.arcade.max_multiple;
 
 /**
  * Given a divisor and a bound, find the largest integer N such that:

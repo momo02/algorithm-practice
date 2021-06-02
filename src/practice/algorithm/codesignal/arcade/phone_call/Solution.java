@@ -1,4 +1,4 @@
-package practice.algorithm.codesignal.arcade.phonecall;
+package practice.algorithm.codesignal.arcade.phone_call;
 
 public class Solution {
 

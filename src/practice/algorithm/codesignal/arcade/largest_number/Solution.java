@@ -1,4 +1,4 @@
-package practice.algorithm.codesignal.arcade.largestnumber;
+package practice.algorithm.codesignal.arcade.largest_number;
 
 public class Solution {
 

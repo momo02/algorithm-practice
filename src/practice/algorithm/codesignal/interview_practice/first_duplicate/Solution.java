@@ -1,4 +1,4 @@
-package practice.algorithm.codesignal.interview_practice.firstduplicate;
+package practice.algorithm.codesignal.interview_practice.first_duplicate;
 
 /**
  * Given an array a that contains only numbers in the range from 1 to a.length,

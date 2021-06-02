@@ -1,4 +1,4 @@
-package practice.algorithm.codesignal.arcade.knapsacklight;
+package practice.algorithm.codesignal.arcade.knapsack_light;
 
 
 public class Solution {

@@ -1,4 +1,4 @@
-package practice.algorithm.codesignal.arcade.circleofnumbers;
+package practice.algorithm.codesignal.arcade.circle_of_numbers;
 
 
 public class Solution {

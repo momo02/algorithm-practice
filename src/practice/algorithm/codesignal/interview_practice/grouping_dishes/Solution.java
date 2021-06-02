@@ -1,4 +1,4 @@
-package practice.algorithm.codesignal.interview_practice.groupingdishes;
+package practice.algorithm.codesignal.interview_practice.grouping_dishes;
 
 import practice.algorithm.utils.StopWatch;
 

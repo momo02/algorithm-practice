@@ -1,4 +1,4 @@
-package practice.algorithm.codesignal.interview_practice.haspathwithgivensum;
+package practice.algorithm.codesignal.interview_practice.has_path_with_given_sum;
 
 public class Tree<T> {
    Tree(T x) {

@@ -1,8 +1,4 @@
-package practice.algorithm.codesignal.interview_practice.haspathwithgivensum;
-
-import practice.algorithm.codesignal.interview_practice.removekfromlist.ListNode;
-
-import java.util.ArrayList;
+package practice.algorithm.codesignal.interview_practice.has_path_with_given_sum;
 
 public class Solution {
 

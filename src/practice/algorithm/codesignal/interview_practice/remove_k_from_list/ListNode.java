@@ -1,4 +1,4 @@
-package practice.algorithm.codesignal.interview_practice.removekfromlist;
+package practice.algorithm.codesignal.interview_practice.remove_k_from_list;
 
 public class ListNode<T> {
     ListNode(T x) {

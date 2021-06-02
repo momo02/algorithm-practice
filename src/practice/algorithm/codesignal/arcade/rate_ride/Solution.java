@@ -1,4 +1,4 @@
-package practice.algorithm.codesignal.arcade.rateride;
+package practice.algorithm.codesignal.arcade.rate_ride;
 
 public class Solution {
 

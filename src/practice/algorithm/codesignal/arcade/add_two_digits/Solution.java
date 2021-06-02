@@ -1,4 +1,4 @@
-package practice.algorithm.codesignal.arcade.addtwodigits;
+package practice.algorithm.codesignal.arcade.add_two_digits;
 
 public class Solution {
 
