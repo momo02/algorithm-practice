@@ -8,7 +8,6 @@ public class Solution {
      * cf) 자바 비트 논리연산자를 이용
      *  동일한 수는 비트 XOR 연산을 하면 0 이 되기때문에
      *  같은 두 수와 다른 수 를 XOR 연산을 했을 때, 다른 나머지 수를 구할 수 있다.
-     *
      */
     static int extraNumber(int a, int b, int c) {
         return a^b^c;
