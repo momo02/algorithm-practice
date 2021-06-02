@@ -1,5 +1,30 @@
 package practice.algorithm.codesignal.arcade.is_infinite_process;
 
+/**
+ * [문제]
+ * 정수 a와 b가 주어지면 다음 의사 코드가 무한 루프를 생성하는지 확인.
+ *
+ * while a is not equal to b do
+ *   increase a by 1
+ *   decrease b by 1
+ * (a와 b가 같지 않으면 a는 1씩 증가, b는 1씩 감소)
+ *
+ * 임의의 긴 숫자를 저장하고 영원히 실행할 수있는 가상 머신에서 프로그램이 실행된다고 가정.
+ *
+ * [예시]
+ * a = 2 및 b = 6의 경우 isInfiniteProcess (a, b) = false;
+ * a = 2 및 b = 3의 경우 isInfiniteProcess (a, b) = true.
+ *
+ * [조건]
+ * [input] integer a
+ * 0 ≤ a ≤ 20.
+ *
+ * [input] integer b
+ * 0 ≤ b ≤ 20.
+ *
+ * [output] boolean
+ * true if the pseudocode will never stop, false otherwise.
+ */
 public class Solution {
     /**
      * 문제풀이
