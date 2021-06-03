@@ -25,20 +25,32 @@ import java.util.Arrays;
  * 배열 A의 각 요소는 [-1,000..1,000] 범위 내의 정수.
  */
 class Solution {
+
     public static int[] solution(int[] A, int K) {
         int[] rs = new int[A.length];
-
+        
         if(A.length == K) return A;
 
         for(int i=0; i<A.length; i++){
-            if(i+K < A.length) {
-                rs[i+K] = A[i];
-            }else{
-                rs[(i+K)%A.length] = A[i];
-            }
+            rs[(i+K)%A.length] = A[i];
         }
         return rs;
     }
+
+//    public static int[] solution(int[] A, int K) {
+//        int[] rs = new int[A.length];
+//
+//        if(A.length == K) return A;
+//
+//        for(int i=0; i<A.length; i++){
+//            if(i+K < A.length) {
+//                rs[i+K] = A[i];
+//            }else{
+//                rs[(i+K)%A.length] = A[i];
+//            }
+//        }
+//        return rs;
+//    }
 
     public static void main(String[] args) {
         int[] answer1 = new int[]{9, 7, 6, 3, 8};
