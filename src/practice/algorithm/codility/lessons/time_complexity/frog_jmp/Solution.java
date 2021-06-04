@@ -23,6 +23,9 @@ package practice.algorithm.codility.lessons.time_complexity.frog_jmp;
  *  [조건]
  *  X, Y 및 D는 [1..1,000,000,000] 범위 내의 정수
  *  X ≤ Y
+ *
+ *  [결과]
+ *  https://app.codility.com/demo/results/training5TNNTS-KWD/
  */
 public class Solution {
     public static int solution(int X, int Y, int D) {
