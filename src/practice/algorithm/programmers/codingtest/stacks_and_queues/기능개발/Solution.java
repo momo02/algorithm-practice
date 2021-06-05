@@ -50,7 +50,8 @@ public class Solution {
         for(int i=0; i<progresses.length; i++){
             int left_progresses = 100-progresses[i];
             int left_days = left_progresses /speeds[i] +  (left_progresses % speeds[i] > 0 ? 1 : 0);
-
+            //int left_days = (int) Math.ceil(left_progresses /(double)speeds[i]);
+            //System.out.println(left_days);
 
             if(stack.empty()){
                 stack.add(left_days);
