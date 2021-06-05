@@ -5,6 +5,29 @@ import java.util.Arrays;
 public class Solution {
 
     /**
+     * 20210605 해당 문제 다시 풀게되어 정리
+     */
+    public static int[] solution4(int[] array, int[][] commands) {
+        int[] answer = new int[commands.length];
+
+        for(int i =0; i<commands.length; i++){
+
+            int[] a = commands[i];
+
+            int length = a[1] - a[0] + 1 ;
+            int[] t = new int[length];
+
+            System.arraycopy(array, a[0]-1, t,0,length);
+
+            Arrays.sort(t);
+            //System.out.println(Arrays.toString(t));
+
+            answer[i] = t[a[2]-1];
+        }
+        return answer;
+    }
+
+    /**
      * Arrays.copyOfRange,Arrays.sort 함수 사용하지 않고 구현.
      *
      * 수행 시간 : 8549ns(나노타임/세크)
@@ -109,7 +132,7 @@ public class Solution {
         int[] answer = {5, 6, 3};
 
         long startTime = System.nanoTime();
-        int[] result = s.solution3(array, commands);
+        int[] result = s.solution4(array, commands);
         long endTime = System.nanoTime();
 
         for(int i=0; i<result.length; i++) {
