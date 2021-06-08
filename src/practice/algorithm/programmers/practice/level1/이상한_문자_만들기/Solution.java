@@ -20,7 +20,28 @@ package practice.algorithm.programmers.practice.level1.이상한_문자_만들�
  */
 public class Solution {
 
-    public static String solution(String s) {
+    /**
+     * 다른 사람 풀이
+     * - String.toCharArray() / Character.toUpperCase 함수 활용.
+     * @param s
+     * @return
+     */
+    public static String solution(String s){
+        char[] chars = s.toCharArray();
+        int idx = 0;
+
+        for(int i = 0; i<chars.length; i++){
+            if(chars[i] == ' '){
+                idx = 0;
+            }else{
+                chars[i] = (idx++ % 2 == 0? Character.toUpperCase(chars[i]) : Character.toLowerCase(chars[i]));
+            }
+        }
+        return String.valueOf(chars);
+    }
+
+
+    public static String solution2(String s) {
         StringBuffer sb = new StringBuffer();
 
         int idx = 0;
