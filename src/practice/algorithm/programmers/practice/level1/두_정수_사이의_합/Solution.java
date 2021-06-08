@@ -1,4 +1,4 @@
-package practice.algorithm.programmers.skill_checks.level1.두_정수_사이의_합;
+package practice.algorithm.programmers.practice.level1.두_정수_사이의_합;
 
 
 /**

@@ -1,4 +1,4 @@
-package practice.algorithm.programmers.skill_checks.level1.나누어_떨어지는_숫자_배열;
+package practice.algorithm.programmers.practice.level1.나누어_떨어지는_숫자_배열;
 
 import java.util.ArrayList;
 import java.util.Arrays;

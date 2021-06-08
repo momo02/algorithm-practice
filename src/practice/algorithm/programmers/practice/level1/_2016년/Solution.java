@@ -1,4 +1,4 @@
-package practice.algorithm.programmers.skill_checks.level1._2016년;
+package practice.algorithm.programmers.practice.level1._2016년;
 
 /**
  * 2016년

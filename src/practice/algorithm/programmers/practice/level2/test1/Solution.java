@@ -1,4 +1,4 @@
-package practice.algorithm.programmers.skill_checks.level2.test1;
+package practice.algorithm.programmers.practice.level2.test1;
 
 /**
  * 문제 설명

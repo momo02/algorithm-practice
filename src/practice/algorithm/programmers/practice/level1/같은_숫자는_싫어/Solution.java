@@ -1,4 +1,4 @@
-package practice.algorithm.programmers.skill_checks.level1.같은_숫자는_싫어;
+package practice.algorithm.programmers.practice.level1.같은_숫자는_싫어;
 
 import java.util.Arrays;
 import java.util.Stack;

@@ -1,4 +1,4 @@
-package practice.algorithm.programmers.skill_checks.level1.약수의_합;
+package practice.algorithm.programmers.practice.level1.약수의_합;
 
 public class Solution {
     /**

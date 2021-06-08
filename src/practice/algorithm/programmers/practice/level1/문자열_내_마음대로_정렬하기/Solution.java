@@ -1,4 +1,4 @@
-package practice.algorithm.programmers.skill_checks.level1.문자열_내_마음대로_정렬하기;
+package practice.algorithm.programmers.practice.level1.문자열_내_마음대로_정렬하기;
 
 import java.util.ArrayList;
 import java.util.Arrays;

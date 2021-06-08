@@ -1,4 +1,4 @@
-package practice.algorithm.programmers.skill_checks.level1.문자열_내_p와_y의_개수;
+package practice.algorithm.programmers.practice.level1.문자열_내_p와_y의_개수;
 
 /**
  * 문자열 내 p와 y의 개수

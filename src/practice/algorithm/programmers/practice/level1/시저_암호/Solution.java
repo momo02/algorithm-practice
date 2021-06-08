@@ -1,4 +1,4 @@
-package practice.algorithm.programmers.skill_checks.level1.시저_암호;
+package practice.algorithm.programmers.practice.level1.시저_암호;
 
 /**
  * https://programmers.co.kr/learn/courses/30/lessons/12926

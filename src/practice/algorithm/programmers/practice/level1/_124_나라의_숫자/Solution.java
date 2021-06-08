@@ -1,4 +1,4 @@
-package practice.algorithm.programmers.skill_checks.level1._124_나라의_숫자;
+package practice.algorithm.programmers.practice.level1._124_나라의_숫자;
 
 /**
  * [문제 설명]

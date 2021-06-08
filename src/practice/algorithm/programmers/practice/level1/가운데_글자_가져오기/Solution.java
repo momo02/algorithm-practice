@@ -1,4 +1,4 @@
-package practice.algorithm.programmers.skill_checks.level1.가운데_글자_가져오기;
+package practice.algorithm.programmers.practice.level1.가운데_글자_가져오기;
 
 public class Solution {
 
