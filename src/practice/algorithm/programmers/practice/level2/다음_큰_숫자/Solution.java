@@ -1,5 +1,7 @@
 package practice.algorithm.programmers.practice.level2.다음_큰_숫자;
 
+import practice.algorithm.utils.StopWatch;
+
 /**
  * 다음 큰 숫자
  *
@@ -28,7 +30,19 @@ package practice.algorithm.programmers.practice.level2.다음_큰_숫자;
  * 15(1111)의 다음 큰 숫자는 23(10111)입니다.
  */
 public class Solution {
-
+    /**
+     * 다른 사람 풀이
+     * -> Integer.bitCount 함수를 이용.
+     * @param n
+     * @return
+     */
+    public static int nextBigNum(int n) {
+       int cnt = Integer.bitCount(n);
+       //System.out.println(">>> bit cnt : " + cnt);
+       while(cnt != Integer.bitCount(++n)) {}
+       return n;
+    }
+    
     /**
      * 2진수 변환 시, 1의 갯수 리턴
      * @param n
@@ -45,20 +59,38 @@ public class Solution {
     }
 
     public static int solution(int n) {
-        int answer = 0;
         int t_cnt = getOneCnt(n);
 
         while(true){
             if(t_cnt == getOneCnt(++n)){
-                answer = n;
                 break;
             }
         }
-        return answer;
+        return n;
     }
 
     public static void main(String[] args) {
-        System.out.println(solution(15));
-        System.out.println(solution(78));
+        //속도(ns):295300
+        //속도(ns):406653
+        //속도(ns):372796
+        //속도(ns):983106
+        //속도(ns):511186
+        //속도(ns):461641
+        //속도(ns):941717
+//        StopWatch.play();
+//        System.out.println(solution(15));
+//        System.out.println(solution(78));
+//        StopWatch.stop();
+
+        //속도(ns):487496
+        //속도(ns):549508
+        //속도(ns):777351
+        //속도(ns):597073
+        //속도(ns):873699
+        //속도(ns):757488
+        StopWatch.play();
+        System.out.println(nextBigNum(15));
+        System.out.println(nextBigNum(78));
+        StopWatch.stop();
     }
 }
