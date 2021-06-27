@@ -27,6 +27,30 @@ package practice.algorithm.programmers.practice.level2.땅따먹기;
  */
 public class Solution {
 
+    public static int hopscotch(int[][] board, int size) {
+        return hopscotch(board, size, 0, -1);
+    }
+
+    public static int hopscotch(int[][] board, int size, int y, int idx) {
+        if (y >= size) return 0;
+        int answer = Integer.MIN_VALUE;
+        for (int i = 0; i < 4; i++) {
+            if (i != idx) {
+                answer = Math.max(hopscotch(board, size, y + 1, i) + board[y][i], answer);
+            }
+        }
+        return answer;
+    }
+
+    /**
+     * 다른 사람의 풀이 (재귀 방식)
+     * @param land
+     * @return
+     */
+    public static int solution2(int[][] land){
+        return hopscotch(land, land.length);
+    }
+
     /**
      * 풀이 강의 참조
      * cf) https://programmers.co.kr/learn/courses/18/lessons/846#
@@ -64,69 +88,6 @@ public class Solution {
         }
         return rs;
     }
-
-//    public static int solution(int[][] land){
-//        int answer = 0, prevRowMaxIdx = -1;
-//        for(int i =0; i<land.length; i++){
-//
-//            Arrays.copyOf()
-//            Arrays.sort(land[i]);
-//
-//            for(int j=0; j<land[i].length; j++){
-//
-//            }
-//
-//            int max = 0, maxIdx = -1, sameMaxCnt = 0;
-//            for(int j=0; j<land[i].length; j++){
-//                if(land[i][j] >= max){
-//                    if(j == prevRowMaxIdx && sameMaxCnt <= 1) continue;
-//                    if(land[i][j] == max) sameMaxCnt ++;
-//                    max = land[i][j];
-//                    maxIdx = j;
-//                }
-//            }
-//            System.out.println(max);
-//            answer += max;
-//            prevRowMaxIdx = maxIdx;
-//        }
-//        return answer;
-//    }
-
-//    public static int solution(int[][] land){
-//        int answer = 0, prevRowMaxIdx = -1;
-//        for(int i =0; i<land.length; i++){
-//            int max = 0, maxIdx = -1, sameMaxCnt = 0;
-//            for(int j=0; j<land[i].length; j++){
-//                if(land[i][j] >= max){
-//                    if(j == prevRowMaxIdx && sameMaxCnt <= 1) continue;
-//                    if(land[i][j] == max) sameMaxCnt ++;
-//                    max = land[i][j];
-//                    maxIdx = j;
-//                }
-//            }
-//            System.out.println(max);
-//            answer += max;
-//            prevRowMaxIdx = maxIdx;
-//        }
-//        return answer;
-//    }
-
-//    public static int solution(int[][] land){
-//        int answer = 0, prevRowMaxIdx = -1;
-//        for(int i =0; i<land.length; i++){
-//            int max = 0, maxIdx = -1;
-//            for(int j=0; j<land[i].length; j++){
-//                if(j != prevRowMaxIdx && land[i][j] > max){
-//                    max = land[i][j];
-//                    maxIdx = j;
-//                }
-//            }
-//            System.out.println(max);
-//            answer += max;
-//            prevRowMaxIdx = maxIdx;
-//        }
-//        return answer;
-//    }
 
     public static void main(String[] args) {
         System.out.println(solution(new int[][]{{1,2,3,5},{5,6,7,8},{4,3,2,1}}));
